@@ -86,5 +86,5 @@ screenshots {
 
 screenshotbot {
     channelName "this-is-a-channel"
-    githubRepo "https://github.com/facebook/screenshot-tests-for-android"
+    githubRepo "https://github.com/tdrhq/screenshotbot-example"
 }
