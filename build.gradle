@@ -85,6 +85,6 @@ screenshots {
 }
 
 screenshotbot {
-    channelName "this-is-a-channel"
+    channelName "screenshotbot-example"
     githubRepo "https://github.com/tdrhq/screenshotbot-example"
 }
