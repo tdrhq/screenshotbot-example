@@ -44,4 +44,6 @@ jobs:
               --channel screenshotbot-example-circleci \
               --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
               --is-production \
-              --branch ${CIRCLE_BRANCH}
+              --branch ${CIRCLE_BRANCH} \
+              --api-key ${SCREENSHOTBOT_API_KEY} \
+              --api-secret ${SCREENSHOTBOT_API_SECRET}
