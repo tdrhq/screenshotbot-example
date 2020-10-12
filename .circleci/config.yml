@@ -36,3 +36,12 @@ jobs:
           command: |
             sudo pip install -U crcmod
             sudo gsutil -m cp -r -U `sudo gsutil ls gs://cloud-test-${GOOGLE_PROJECT_ID}/ | tail -1` ${CIRCLE_ARTIFACTS}/ | true
+      - run:
+          name: Record to screenshotbot
+          command: |
+            wget https://screenshotbot.io/recorder-master.jar
+            java -jar recorder-master.jar --dir ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
+              --channel screenshotbot-example-circleci \
+              --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
+              --is-production \
+              --branch ${CIRCLE_BRANCH}
