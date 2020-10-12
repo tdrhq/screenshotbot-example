@@ -33,7 +33,7 @@ public class ExampleScreenshotTest {
 
     view.setComponent(Example.create(view.getComponentContext()).build());
 
-    ViewHelpers.setupView(view).setExactWidthDp(312).layout();
+    ViewHelpers.setupView(view).setExactWidthDp(313).layout();
     Screenshot.snap(view).record();
   }
 }
