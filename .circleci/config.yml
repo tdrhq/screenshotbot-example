@@ -28,10 +28,11 @@ jobs:
               --app ./build/outputs/apk/debug/project-debug.apk \
               --test ./build/outputs/apk/androidTest/debug/project-debug-androidTest.apk \
               --results-bucket cloud-test-${GOOGLE_PROJECT_ID} \
+              --directories-to-pull /sdcard/screenshots/com.facebook.testing.screenshot.example.test
               --device-ids Pixel2 \
               --os-version-ids 27
       - run:
           name: Install gsutil dependency and copy test results data
           command: |
             sudo pip install -U crcmod
-            sudo gsutil -m cp -r -U `sudo gsutil ls gs://[BUCKET_NAME]/[OBJECT_NAME] | tail -1` ${CIRCLE_ARTIFACTS}/ | true
+            sudo gsutil -m cp -r -U `sudo gsutil ls gs://cloud-test-${GOOGLE_PROJECT_ID}/ | tail -1` ${CIRCLE_ARTIFACTS}/ | true
