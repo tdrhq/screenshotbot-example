@@ -42,7 +42,6 @@ jobs:
             wget https://screenshotbot.io/recorder-master.jar
             java -jar recorder-master.jar --dir ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
               --channel screenshotbot-example-circleci-test \
-              --github-repo
               --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
               --is-production \
               --branch ${CIRCLE_BRANCH} \
