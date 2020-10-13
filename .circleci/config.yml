@@ -41,7 +41,7 @@ jobs:
           command: |
             wget https://screenshotbot.io/recorder-master.jar
             java -jar recorder-master.jar --dir ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
-              --channel screenshotbot-example-circleci \
+              --channel screenshotbot-example-circleci-2 \
               --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
               --is-production \
               --branch ${CIRCLE_BRANCH} \
