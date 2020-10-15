@@ -27,7 +27,7 @@ buildscript {
     classpath plugs.agp
     classpath plugs.screenshot
     classpath plugs.kotlin
-        classpath "io.screenshotbot:plugin:0.1.0"
+        classpath "io.screenshotbot:plugin:0.1.2"
   }
 }
 
