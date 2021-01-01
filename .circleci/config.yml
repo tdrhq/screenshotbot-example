@@ -39,12 +39,14 @@ jobs:
       - run:
           name: Record to screenshotbot
           command: |
-            wget https://screenshotbot.io/recorder-master.jar
-            java -jar recorder-master.jar --dir ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
+            wget https://screenshotbot.io/recorder-linux.sh
+            chmod a+x recorder-linux.sh
+            ./recorder-linux.sh \
+              --directory ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
               --channel screenshotbot-example-circleci-test \
               --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
-              --is-production \
+              --production \
               --branch ${CIRCLE_BRANCH} \
               --api-key ${SCREENSHOTBOT_API_KEY} \
-              --repo ${CIRCLE_REPOSITORY_URL} \
+              --repo-url ${CIRCLE_REPOSITORY_URL} \
               --api-secret ${SCREENSHOTBOT_API_SECRET}
