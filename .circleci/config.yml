@@ -39,9 +39,8 @@ jobs:
       - run:
           name: Record to screenshotbot
           command: |
-            wget https://screenshotbot.io/recorder-linux.sh
-            chmod a+x recorder-linux.sh
-            ./recorder-linux.sh \
+            curl https://screenshotbot.io/recorder.sh | sh
+            ~/screenshotbot/recorder \
               --directory ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
               --channel screenshotbot-example-circleci-test \
               --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
