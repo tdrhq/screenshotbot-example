@@ -35,7 +35,8 @@ class SpinnerActivityTest {
 
   @Test
   fun testScreenshotEntireActivity() {
-    val activity = activityTestRule.launchActivity(null)
-    Screenshot.snapActivity(activity).record()
+      val activity = activityTestRule.launchActivity(null)
+      sleep(100);
+      Screenshot.snapActivity(activity).record()
   }
 }

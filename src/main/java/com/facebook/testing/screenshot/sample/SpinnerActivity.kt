@@ -33,8 +33,8 @@ import com.facebook.litho.LithoView
 class SpinnerActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.spinner_activity)
-    setSupportActionBar(findViewById(R.id.toolbar))
+      setContentView(R.layout.spinner_activity)
+      setSupportActionBar(findViewById(R.id.toolbar))
   }
 
 }
