@@ -24,9 +24,10 @@
   <androidx.constraintlayout.widget.ConstraintLayout
                                                android:layout_width="match_parent"
                                                android:layout_height="match_parent"
-                                               tools:context="example.javatpoint.com.spinner.MainActivity">
+                                               >
 
-    <Spinner
+
+    <ProgressBar
         android:id="@+id/spinner"
         android:layout_width="149dp"
         android:layout_height="40dp"
