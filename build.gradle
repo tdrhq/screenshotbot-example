@@ -47,6 +47,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.facebook.testing.screenshot'
 apply plugin: 'io.screenshotbot.plugin'
 
+
 android {
   compileSdkVersion versions.compileSdk
   defaultConfig {
@@ -72,6 +73,7 @@ dependencies {
   kapt deps.lithoProcessor
 
   implementation deps.soLoader
+  implementation "androidx.constraintlayout:constraintlayout:2.0.4"
 
   androidTestImplementation deps.screenshotTestCommon
   androidTestImplementation deps.screenshotTestLitho
