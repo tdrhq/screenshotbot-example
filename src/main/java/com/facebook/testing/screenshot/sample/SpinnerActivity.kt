@@ -29,12 +29,16 @@ import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import com.facebook.litho.LithoView
+import android.widget.ProgressBar
 
 class SpinnerActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
       setContentView(R.layout.spinner_activity)
       setSupportActionBar(findViewById(R.id.toolbar))
+
+      val pb = findViewById(R.id.spinner) as ProgressBar
+      pb.setInterpolator({ input -> 0.5f })
   }
 
 }
