@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/android:api-28-alpha  # gcloud is baked into this image
+      - image: circleci/android:api-28-node  # gcloud is baked into this image
         auth:
           username: tdrhq
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
