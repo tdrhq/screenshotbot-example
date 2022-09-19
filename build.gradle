@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ buildscript {
   repositories {
     mavenLocal()
     jcenter()
-    mavenCentral()
     google()
   }
 
@@ -27,7 +26,6 @@ buildscript {
     classpath plugs.agp
     classpath plugs.screenshot
     classpath plugs.kotlin
-        classpath "io.screenshotbot:plugin:0.1.6"
   }
 }
 
@@ -35,7 +33,6 @@ allprojects {
   repositories {
     mavenLocal()
     jcenter()
-    mavenCentral()
     google()
   }
 }
@@ -45,8 +42,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.facebook.testing.screenshot'
-apply plugin: 'io.screenshotbot.plugin'
-
 
 android {
   compileSdkVersion versions.compileSdk
@@ -57,7 +52,10 @@ android {
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "com.facebook.testing.screenshot.sample.ScreenshotTestRunner"
-    ndkVersion "20.1.5948944"
+    testInstrumentationRunnerArguments clearPackageData: 'true'
+  }
+  testOptions {
+    execution 'ANDROIDX_TEST_ORCHESTRATOR'
   }
 }
 
@@ -73,11 +71,12 @@ dependencies {
   kapt deps.lithoProcessor
 
   implementation deps.soLoader
-  implementation "androidx.constraintlayout:constraintlayout:2.0.4"
 
   androidTestImplementation deps.screenshotTestCommon
   androidTestImplementation deps.screenshotTestLitho
   androidTestImplementation deps.junit
+  androidTestImplementation deps.testRunner
+  androidTestUtil deps.orchestrator
   androidTestImplementation(deps.espresso) {
     exclude group: 'com.android.support', module: 'support-annotations'
     exclude group: 'com.google.code.findbugs', module: 'jsr305'
@@ -87,9 +86,5 @@ dependencies {
 
 screenshots {
   multipleDevices true
-}
-
-screenshotbot {
-    channelName "screenshotbot-example"
-    githubRepo "https://github.com/tdrhq/screenshotbot-example"
+  pythonExecutable 'python3'
 }

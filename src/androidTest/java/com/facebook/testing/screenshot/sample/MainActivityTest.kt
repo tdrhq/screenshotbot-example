@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,28 @@
 
 package com.facebook.testing.screenshot.sample
 
-
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.facebook.testing.screenshot.Screenshot
 import org.hamcrest.core.AllOf.allOf
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class MainActivityTest {
   @get:Rule
   var activityTestRule = ActivityTestRule<MainActivity>(MainActivity::class.java, false, false)
+
+  @Before
+  fun before() {
+    InstrumentationRegistry.getInstrumentation().getUiAutomation()
+  }
 
   @Test
   fun testScreenshotEntireActivity() {

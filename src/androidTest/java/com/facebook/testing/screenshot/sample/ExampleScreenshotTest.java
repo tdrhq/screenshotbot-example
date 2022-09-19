@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,22 @@ package com.facebook.testing.screenshot.sample;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import androidx.test.annotation.UiThreadTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 import com.facebook.litho.LithoView;
 import com.facebook.testing.screenshot.Screenshot;
 import com.facebook.testing.screenshot.ViewHelpers;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ExampleScreenshotTest {
+  @Before
+  public void before() {
+    InstrumentationRegistry.getInstrumentation().getUiAutomation();
+  }
+
   @Test
+  @UiThreadTest
   public void testDefault() {
     Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
     LayoutInflater inflater = LayoutInflater.from(targetContext);
@@ -33,7 +41,7 @@ public class ExampleScreenshotTest {
 
     view.setComponent(Example.create(view.getComponentContext()).build());
 
-    ViewHelpers.setupView(view).setExactWidthDp(303).layout();
+    ViewHelpers.setupView(view).setExactWidthDp(300).setExactHeightDp(300).layout();
     Screenshot.snap(view).record();
   }
 }
