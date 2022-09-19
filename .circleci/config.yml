@@ -30,23 +30,14 @@ jobs:
               --results-bucket cloud-test-${GOOGLE_PROJECT_ID} \
               --directories-to-pull /sdcard/screenshots/com.facebook.testing.screenshot.example.test \
               --device-ids Pixel2 \
-              --os-version-ids 27
-      - run:
-          name: Install gsutil dependency and copy test results data
-          command: |
-            sudo pip install -U crcmod
-            sudo gsutil -m cp -r -U `sudo gsutil ls gs://cloud-test-${GOOGLE_PROJECT_ID}/ | tail -1` ${CIRCLE_ARTIFACTS}/ | true
+              --os-version-ids 27 | tee firebase-output
       - run:
           name: Record to screenshotbot
           command: |
-            curl https://screenshotbot.io/recorder.sh | sh
+            curl https://staging.screenshotbot.io/recorder.sh | sh
             ~/screenshotbot/recorder \
-              --directory ${CIRCLE_ARTIFACTS}/*/*/artifacts/screenshot_bundle.zip \
               --channel screenshotbot-example-circleci-test \
-              --metadata ${CIRCLE_ARTIFACTS}/*/*/artifacts/metadata.xml \
-              --production \
-              --verbose \
-              --branch ${CIRCLE_BRANCH} \
+              --firebase-output firebase-output
               --api-key ${SCREENSHOTBOT_API_KEY} \
               --repo-url ${CIRCLE_REPOSITORY_URL} \
               --api-secret ${SCREENSHOTBOT_API_SECRET}
