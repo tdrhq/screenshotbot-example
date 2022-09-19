@@ -30,14 +30,14 @@ jobs:
               --results-bucket cloud-test-${GOOGLE_PROJECT_ID} \
               --directories-to-pull /sdcard/screenshots/com.facebook.testing.screenshot.example.test \
               --device-ids Pixel2 \
-              --os-version-ids 27 2>&1 | tee firebase-output
+              --os-version-ids 27 2>&1 | tee ~/firebase-output
       - run:
           name: Record to screenshotbot
           command: |
             curl https://staging.screenshotbot.io/recorder.sh | sh
             ~/screenshotbot/recorder \
               --channel screenshotbot-example-circleci-test \
-              --firebase-output firebase-output
+              --firebase-output ~/firebase-output
               --api-key ${SCREENSHOTBOT_API_KEY} \
               --repo-url ${CIRCLE_REPOSITORY_URL} \
               --api-secret ${SCREENSHOTBOT_API_SECRET}
