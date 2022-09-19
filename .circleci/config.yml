@@ -30,7 +30,7 @@ jobs:
               --results-bucket cloud-test-${GOOGLE_PROJECT_ID} \
               --directories-to-pull /sdcard/screenshots/com.facebook.testing.screenshot.example.test \
               --device-ids Pixel2 \
-              --os-version-ids 27 | tee firebase-output
+              --os-version-ids 27 2>&1 | tee firebase-output
       - run:
           name: Record to screenshotbot
           command: |
