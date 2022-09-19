@@ -19,8 +19,8 @@ jobs:
       - run:
           name: Authorize gcloud and set config defaults
           command: |
-            gcloud alpha auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-            gcloud alpha --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
       - run:
           name: Test with Firebase Test Lab
           command: >
