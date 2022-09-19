@@ -37,7 +37,7 @@ jobs:
             curl https://staging.screenshotbot.io/recorder.sh | sh
             ~/screenshotbot/recorder \
               --channel screenshotbot-example-circleci-test \
-              --firebase-output ~/firebase-output
+              --firebase-output ~/firebase-output \
               --api-key ${SCREENSHOTBOT_API_KEY} \
               --repo-url ${CIRCLE_REPOSITORY_URL} \
               --api-secret ${SCREENSHOTBOT_API_SECRET}
