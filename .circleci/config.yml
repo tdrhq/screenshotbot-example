@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Record to screenshotbot
           command: |
-            curl https://staging.screenshotbot.io/recorder.sh | sh
+            curl https://screenshotbot.io/recorder.sh | sh
             ~/screenshotbot/recorder \
               --channel screenshotbot-example-circleci-test \
               --firebase-output ~/firebase-output \
