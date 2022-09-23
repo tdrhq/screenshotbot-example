@@ -2,7 +2,8 @@
 # Screenshotbot example with screenshot-tests-for-android
 
 This repository is an example of how to integration
-screenshot-tests-for-android with Screenshotbot.
+[screenshot-tests-for-android](https://github.com/facebook/screenshot-tests-for-android)
+with [Screenshotbot](https://screenshotbot.io).
 
 In this particular example, we use Firebase Test Lab for emulators,
 and run the tests on CircleCI.
