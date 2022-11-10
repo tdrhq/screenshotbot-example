@@ -1,6 +1,8 @@
 
 # Screenshotbot example with screenshot-tests-for-android
 
+[![Screenshots](https://screenshotbot.io/badge?org=5fe2d92a7ceb64d41853c231&channel=screenshotbot-example-circleci-test&branch=master)](https://screenshotbot.io/active-run?org=5fe2d92a7ceb64d41853c231&channel=screenshotbot-example-circleci-test&branch=master)
+
 This repository is an example of how to integration
 [screenshot-tests-for-android](https://github.com/facebook/screenshot-tests-for-android)
 with [Screenshotbot](https://screenshotbot.io).
