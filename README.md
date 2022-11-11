@@ -28,6 +28,7 @@ To translate this to a different CI you need to do a few steps
   bucket to store the results in. For now we only support one
   `--device-id` at a time.
 
+
 * The screenshotbot CLI tool can parse the output from the previous
   command. It can figure out where to pull the screenshots from Google
   Cloud Storage, and delete the artifacts so you don't incur charges.
